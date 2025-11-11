@@ -1,0 +1,17 @@
+﻿using Amazon;
+using Amazon.Rekognition.Model;
+using Amazon.Runtime.Internal;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Common.Support
+{
+    public class Label
+    {
+        public string Name { get; set; }
+        public float? Confidence { get; set; }
+    }
+}
