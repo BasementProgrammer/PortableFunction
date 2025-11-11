@@ -1,11 +1,11 @@
 schema_version: 20180708
 name: imagefunction
-version: 0.0.66
+version: 0.0.73
 runtime: dotnet
 build_image: fnproject/dotnet:8.0-1.0.46-dev
 run_image: fnproject/dotnet:8.0-1.0.46
 cmd: OCIFunction:Function:FunctionHandler
-entrypoint: dotnet Function.dll
+entrypoint: dotnet OCIFunction.dll
 config:
   CompartmetId: ocid1.vaultsecret.oc1.iad.amaaaaaafvqkqmqa463dhosnmwltwdqobu6h4yp4w4u37farbfsusqemgizq
   ConnectionString: ocid1.vaultsecret.oc1.iad.amaaaaaafvqkqmqawww2ywbybn2nwslteiko7nqug5rceu766qtffa66q3cq
