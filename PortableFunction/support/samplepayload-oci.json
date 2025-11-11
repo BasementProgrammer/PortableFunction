@@ -1,0 +1,30 @@
+{
+  "eventType" : "com.oraclecloud.objectstorage.createobject",
+  "cloudEventsVersion" : "0.1",
+  "eventTypeVersion" : "2.0",
+  "source" : "ObjectStorage",
+  "eventTime" : "2025-09-16T17:25:58Z",
+  "contentType" : "application/json",
+  "data" :
+  {
+    "compartmentId" : "{CompartmentId}",
+    "compartmentName" : "{CompartmentName}",
+    "resourceName" : "{ObjectName}",
+    "resourceId" : "/n/{NameSpace}/b/{Bucket}/o/{Object}",
+    "availabilityDomain" : "{AD}",
+    "additionalDetails" :
+    {
+      "bucketName" : "{BucketName}",
+      "versionId" : "424b41ec-a64c-4400-af8e-e5e87c73d052",
+      "archivalState" : "Available",
+      "namespace" : "{NameSpace}",
+      "bucketId" : "{BucketOCID}",
+      "eTag" : "4df1e866-f3a6-4c86-9f96-071f4f30b36b"
+    }
+  },
+  "eventID" : "2f83621b-7960-4085-c041-1163595fb8f1",
+  "extensions" :
+  {
+    "compartmentId" : "{CompartmentOCID}"
+  }
+}
