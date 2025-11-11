@@ -1,12 +1,13 @@
 ﻿using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
+using Common.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Support.AWS
+namespace Implementations
 {
     public class DynamoDbMetaDataRepository : IMetaDataRepository
     {

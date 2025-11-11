@@ -10,7 +10,7 @@ using Oci.AivisionService.Models;
 using Oci.AivisionService.Requests;
 
 
-namespace Common.Support.OCI
+namespace Implementations
 {
     public class OCIVisionImageLabelDetector : IImageLabelDetector
     {
@@ -33,9 +33,9 @@ namespace Common.Support.OCI
         public string NameSpace { get;  set; }
         public string CompartmentId { get; set; }
 
-        public List<Label> DetectLabels(string bucketName, string objectKey)
+        public List<Common.Support.Label> DetectLabels(string bucketName, string objectKey)
         {
-            List<Label> labels = new List<Label>();
+            List<Common.Support.Label> labels = new List<Common.Support.Label>();
 
             var analyzeImageDetails = new AnalyzeImageDetails
             {
@@ -66,7 +66,7 @@ namespace Common.Support.OCI
             foreach (var classification in results.AnalyzeImageResult.Labels)
             {
                 Console.WriteLine($"Label: {classification.Name}, Confidence: {classification.Confidence}");
-                labels.Add(new Label
+                labels.Add(new Common.Support.Label
                 {
                     Name = classification.Name,
                     Confidence = classification.Confidence.HasValue ? classification.Confidence.Value : 0

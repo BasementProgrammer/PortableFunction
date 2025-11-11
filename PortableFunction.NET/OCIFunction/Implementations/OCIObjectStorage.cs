@@ -1,4 +1,5 @@
-﻿using Oci.Common.Auth;
+﻿using Common.Support;
+using Oci.Common.Auth;
 using Oci.ObjectstorageService;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Support.OCI
+namespace Implementations
 {
     public class OCIObjectStorage : IObjectStorage
     {

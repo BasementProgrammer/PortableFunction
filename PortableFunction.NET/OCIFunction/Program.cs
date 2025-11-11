@@ -1,12 +1,12 @@
 using Fnproject.Fn.Fdk;
 using Common.Support;
-using Common.Support.OCI;
 using Microsoft.Extensions.Configuration;
 using Oci.Common.Auth;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
+using Implementations;
 [assembly:InternalsVisibleTo("Function.Tests")]
 
 namespace OCIFunction {
@@ -35,9 +35,9 @@ namespace OCIFunction {
 			ISecretsManagement secrets = new OCIVaultSecretsManager(authenticationDetailsProvider, config);
             UniversalFunction universalFunction = new UniversalFunction
 			(
-				new Common.Support.OCI.OCIVisionImageLabelDetector(authenticationDetailsProvider, secrets),
-				new Common.Support.OCI.OSObjectTagging(authenticationDetailsProvider, secrets),
-				new Common.Support.OCI.AutonomousJsonDbMetaDataRepository(authenticationDetailsProvider, secrets)
+				new OCIVisionImageLabelDetector(authenticationDetailsProvider, secrets),
+				new OCIObjectTagging(authenticationDetailsProvider, secrets),
+				new AutonomousJsonDbMetaDataRepository(authenticationDetailsProvider, secrets)
 			);
 
 			List<UniversalRecord> universalRecords = new List<UniversalRecord>();

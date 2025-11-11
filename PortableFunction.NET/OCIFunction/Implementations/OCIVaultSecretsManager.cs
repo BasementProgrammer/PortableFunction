@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Common.Support;
+using Microsoft.Extensions.Configuration;
 using Oci.Common;
 using Oci.Common.Auth;
 using Oci.SecretsService.Models;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Support.OCI
+namespace Implementations
 {
     public class OCIVaultSecretsManager : ISecretsManagement
     {

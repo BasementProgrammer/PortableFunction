@@ -1,4 +1,5 @@
-﻿using Oci.Common.Auth;
+﻿using Common.Support;
+using Oci.Common.Auth;
 using Oci.ObjectstorageService;
 using Oci.ObjectstorageService.Requests;
 using System;
@@ -7,15 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Support.OCI
+namespace Implementations
 {
-    public class OSObjectTagging : IObjectTagging
+    public class OCIObjectTagging : IObjectTagging
     {
         ObjectStorageClient _client;
         private IBasicAuthenticationDetailsProvider _authProvider;
         private ISecretsManagement _secrets;
 
-        public OSObjectTagging(IBasicAuthenticationDetailsProvider authProvider, ISecretsManagement secrets) 
+        public OCIObjectTagging(IBasicAuthenticationDetailsProvider authProvider, ISecretsManagement secrets) 
         {
             _secrets = secrets;
             _authProvider = authProvider;

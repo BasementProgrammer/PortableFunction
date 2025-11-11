@@ -7,6 +7,11 @@
 
   <ItemGroup>
   <PackageReference Include="Fnproject.Fn.Fdk" Version="1.0.46" />
+  <PackageReference Include="OCI.DotNetSDK.Aivision" Version="118.2.0" />
+  <PackageReference Include="OCI.DotNetSDK.Objectstorage" Version="118.2.0" />
+  <PackageReference Include="OCI.DotNetSDK.Secrets" Version="118.2.0" />
+  <PackageReference Include="OCI.DotNetSDK.Vault" Version="118.2.0" />
+  <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.9.1" />
   </ItemGroup>
 
   <ItemGroup>

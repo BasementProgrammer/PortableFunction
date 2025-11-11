@@ -1,10 +1,7 @@
 using Amazon.Lambda.Core;
 using Amazon.Lambda.S3Events;
-using Amazon.Rekognition;
-using Amazon.Rekognition.Model;
-using Amazon.S3;
-using Amazon.S3.Model;
 using Common.Support;
+using Implementations;
 
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -25,16 +22,6 @@ public class Function
     {
     }
 
-    /// <summary>
-    /// Constructor used for testing which will pass in the already configured service clients.
-    /// </summary>
-    /// <param name="s3Client">Service client for accessing Amazon S3.</param>
-    /// <param name="rekognitionClient">Service client for accessing Amazon Rekognition.</param>
-    /// <param name="minConfidence">The min confidence for accepting a label from Amazon Rekognition.</param>
-    public Function(IAmazonS3 s3Client, IAmazonRekognition rekognitionClient, float minConfidence)
-    {
-
-    }
 
     /// <summary>
     /// A function for responding to S3 create events. It will determine if the object is an image and use Amazon Rekognition
@@ -47,9 +34,9 @@ public class Function
     {
         UniversalFunction universalFunction = new UniversalFunction
             (
-                new Common.Support.AWS.RekognitionImageLabelDetector(),
-                new Common.Support.AWS.S3ObjectTagging(),
-                new Common.Support.AWS.DynamoDbMetaDataRepository()
+                new RekognitionImageLabelDetector(),
+                new S3ObjectTagging(),
+                new DynamoDbMetaDataRepository()
             );
             
         List<UniversalRecord> universalRecords = new List<UniversalRecord>();

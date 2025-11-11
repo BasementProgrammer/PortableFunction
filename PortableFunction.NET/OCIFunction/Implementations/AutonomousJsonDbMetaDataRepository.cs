@@ -1,6 +1,4 @@
-﻿using Amazon.DynamoDBv2.Model.Internal.MarshallTransformations;
-using Amazon.S3;
-using Amazon.S3.Model;
+﻿using Common.Support;
 using crypto;
 using Microsoft.Extensions.Configuration;
 using Oci.Common.Auth;
@@ -16,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Support.OCI
+namespace Implementations
 {
     public class AutonomousJsonDbMetaDataRepository : IMetaDataRepository
     {

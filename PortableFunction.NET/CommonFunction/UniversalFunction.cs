@@ -1,10 +1,4 @@
-﻿using Amazon.DynamoDBv2;
-using Amazon.DynamoDBv2.DataModel;
-using Amazon.S3;
-using Amazon.S3.Model;
-using Oci.Common.Auth;
-using Polly;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,12 +24,12 @@ namespace Common.Support
             if (_imageLabelDetector == null)
             {
                 Console.WriteLine("Image label detector is not initialized. Recreating!!!.");
-                _imageLabelDetector = new Common.Support.AWS.RekognitionImageLabelDetector();
+                //_imageLabelDetector = new Common.Support.AWS.RekognitionImageLabelDetector();
             }
             if (_objectTagging == null)
             {
                 Console.WriteLine("Object tagging is not initialized. Recreating!!!.");
-                _objectTagging = new Common.Support.AWS.S3ObjectTagging();
+                //_objectTagging = new Common.Support.AWS.S3ObjectTagging();
             }
             foreach (var record in universalRecords)
             {

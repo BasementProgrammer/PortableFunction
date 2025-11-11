@@ -1,7 +1,6 @@
-﻿using Amazon.DynamoDBv2.DataModel;
+﻿using System.Collections.Generic;
 
-
-namespace Common.Support.OCI
+namespace Implementations
 {
     public class ImageMetadataDataModel
     {

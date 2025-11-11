@@ -1,7 +1,7 @@
 ﻿using Amazon.DynamoDBv2.DataModel;
 
 
-namespace Common.Support.AWS
+namespace Implementations
 {
     [DynamoDBTable("MetadataService-files")]
     public class FileMetadataDataModel

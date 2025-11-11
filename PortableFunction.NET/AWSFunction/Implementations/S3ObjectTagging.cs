@@ -1,12 +1,13 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
+using Common.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Support.AWS
+namespace Implementations
 {
     public class S3ObjectTagging : IObjectTagging
     {
