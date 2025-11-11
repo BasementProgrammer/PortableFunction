@@ -1,6 +1,6 @@
 schema_version: 20180708
 name: imagefunction
-version: 0.0.73
+version: 0.0.74
 runtime: dotnet
 build_image: fnproject/dotnet:8.0-1.0.46-dev
 run_image: fnproject/dotnet:8.0-1.0.46
