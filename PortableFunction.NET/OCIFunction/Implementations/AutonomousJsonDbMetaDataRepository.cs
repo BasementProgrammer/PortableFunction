@@ -1,4 +1,5 @@
-﻿using Common.Support;
+﻿using Common.Support.Models;
+using Common.Support.ServiceInterfaces;
 using crypto;
 using Microsoft.Extensions.Configuration;
 using Oci.Common.Auth;
@@ -24,9 +25,9 @@ namespace Implementations
         {
             _secrets = secrets;
         }
-        public List<UniversalTag> SaveMetadata(string bucketName, string objectKey, List<Label> labels)
+        public List<Common.Support.Models.Tag> SaveMetadata(string bucketName, string objectKey, List<Label> labels)
         {
-            List<UniversalTag> tagList = new List<UniversalTag>();
+            List<Common.Support.Models.Tag> tagList = new List<Common.Support.Models.Tag>();
             ImageMetadataDataModel dataModel = new ImageMetadataDataModel
             {
                 Image = objectKey,
@@ -42,7 +43,7 @@ namespace Implementations
 
                 foreach (var label in labels)
                 {
-                    tagList.Add(new UniversalTag
+                    tagList.Add(new Common.Support.Models.Tag
                     {
                         Key = label.Name,
                         Value = label.Confidence.Value.ToString("F2")

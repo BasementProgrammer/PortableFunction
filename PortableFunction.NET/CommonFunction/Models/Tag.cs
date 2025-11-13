@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Support
+namespace Common.Support.Models
 {
-    public class UniversalTag
+    public class Tag
     {
         public string Key { get; set; }
         public string Value { get; set; }

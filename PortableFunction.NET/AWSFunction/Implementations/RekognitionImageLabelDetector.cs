@@ -1,5 +1,6 @@
 ﻿using Amazon.Rekognition;
-using Common.Support;
+using Common.Support.Models;
+using Common.Support.ServiceInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

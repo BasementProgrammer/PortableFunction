@@ -1,4 +1,4 @@
-﻿using Common.Support;
+﻿using Common.Support.ServiceInterfaces;
 using Microsoft.Extensions.Configuration;
 using Oci.Common;
 using Oci.Common.Auth;

@@ -1,5 +1,4 @@
-﻿using Common.Support;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +7,7 @@ using Oci.Common.Auth;
 using Oci.AivisionService;
 using Oci.AivisionService.Models;
 using Oci.AivisionService.Requests;
+using Common.Support.ServiceInterfaces;
 
 
 namespace Implementations
@@ -33,9 +33,9 @@ namespace Implementations
         public string NameSpace { get;  set; }
         public string CompartmentId { get; set; }
 
-        public List<Common.Support.Label> DetectLabels(string bucketName, string objectKey)
+        public List<Common.Support.Models.Label> DetectLabels(string bucketName, string objectKey)
         {
-            List<Common.Support.Label> labels = new List<Common.Support.Label>();
+            List<Common.Support.Models.Label> labels = new List<Common.Support.Models.Label>();
 
             var analyzeImageDetails = new AnalyzeImageDetails
             {
@@ -66,7 +66,7 @@ namespace Implementations
             foreach (var classification in results.AnalyzeImageResult.Labels)
             {
                 Console.WriteLine($"Label: {classification.Name}, Confidence: {classification.Confidence}");
-                labels.Add(new Common.Support.Label
+                labels.Add(new Common.Support.Models.Label
                 {
                     Name = classification.Name,
                     Confidence = classification.Confidence.HasValue ? classification.Confidence.Value : 0

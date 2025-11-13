@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Common.Support.Models;
+using Common.Support.ServiceInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,19 +9,19 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Common.Support
 {
-    public class UniversalFunction
+    public class BusinessFunction
     {
         IObjectTagging _objectTagging;
         IImageLabelDetector _imageLabelDetector;
         IMetaDataRepository _metaDataRepository;
 
-        public UniversalFunction(IImageLabelDetector imageLabelDetector, IObjectTagging objectTagging, IMetaDataRepository metaDataRepository) 
+        public BusinessFunction(IImageLabelDetector imageLabelDetector, IObjectTagging objectTagging, IMetaDataRepository metaDataRepository) 
         {
             _imageLabelDetector = imageLabelDetector;
             _objectTagging = objectTagging;
             _metaDataRepository = metaDataRepository;
         }
-        public void ProcessImages(List<UniversalRecord> universalRecords)
+        public void ProcessImages(List<StorageObject> universalRecords)
         {
             if (_imageLabelDetector == null)
             {

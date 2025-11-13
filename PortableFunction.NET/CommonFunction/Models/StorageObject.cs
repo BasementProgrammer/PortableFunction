@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Support
+namespace Common.Support.Models
 {
-    public class UniversalRecord
+    public class StorageObject
     {
         public string BucketName { get; set; }
         public string ObjectKey { get; set; }

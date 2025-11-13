@@ -1,4 +1,5 @@
-﻿using Common.Support;
+﻿using Common.Support.Models;
+using Common.Support.ServiceInterfaces;
 using Oci.Common.Auth;
 using Oci.ObjectstorageService;
 using Oci.ObjectstorageService.Requests;
@@ -37,17 +38,10 @@ namespace Implementations
             response.Wait();
             return;
         }
-        public void ApplyTags(string bucketName, string objectKey, List<UniversalTag> tags)
+        public void ApplyTags(string bucketName, string objectKey, List<Common.Support.Models.Tag> tags)
         {
-
-            //GetObjectRequest getObjectRequest = new GetObjectRequest();
-
-            //var responce = _client.GetObject(getObjectRequest);
-            //responce.Wait();
-
-            //var objectStorageObject = responce.Result;
-
-
+            // OCI Does not implement Object level tagging.
+            
             return;
         }
     }

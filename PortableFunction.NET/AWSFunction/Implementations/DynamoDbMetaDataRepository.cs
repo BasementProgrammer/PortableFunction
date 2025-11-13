@@ -1,6 +1,7 @@
 ﻿using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
-using Common.Support;
+using Common.Support.Models;
+using Common.Support.ServiceInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,9 @@ namespace Implementations
             throw new NotImplementedException();
         }
 
-        public List<UniversalTag> SaveMetadata(string bucketName, string objectKey, List<Label> labels)
+        public List<Common.Support.Models.Tag> SaveMetadata(string bucketName, string objectKey, List<Label> labels)
         {
-            var tags = new List<UniversalTag>();
+            var tags = new List<Common.Support.Models.Tag>();
             foreach (var label in labels)
             {
                 ImageMetadataDataModel imageMetadata = new ImageMetadataDataModel()

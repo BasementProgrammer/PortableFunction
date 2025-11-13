@@ -1,6 +1,7 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
-using Common.Support;
+using Common.Support.Models;
+using Common.Support.ServiceInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,14 @@ namespace Implementations
         public S3ObjectTagging()
         {
         }
-        public void ApplyTags(string bucketName, string objectKey, List<UniversalTag> tags)
+        public void ApplyTags(string bucketName, string objectKey, List<Common.Support.Models.Tag> tags)
         {
             _S3Client = new AmazonS3Client();
 
-            var s3Tags = new List<Tag>();
+            var s3Tags = new List<Amazon.S3.Model.Tag>();
             foreach (var tag in tags)
             {
-                s3Tags.Add(new Tag { Key = tag.Key, Value = tag.Value });
+                s3Tags.Add(new Amazon.S3.Model.Tag { Key = tag.Key, Value = tag.Value });
             }
 
             var s3PutResonse = _S3Client.PutObjectTaggingAsync(new PutObjectTaggingRequest

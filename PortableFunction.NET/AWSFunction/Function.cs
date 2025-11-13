@@ -1,6 +1,7 @@
 using Amazon.Lambda.Core;
 using Amazon.Lambda.S3Events;
 using Common.Support;
+using Common.Support.Models;
 using Implementations;
 
 
@@ -32,18 +33,18 @@ public class Function
     /// <returns></returns>
     public async Task FunctionHandler(S3Event input, ILambdaContext context)
     {
-        UniversalFunction universalFunction = new UniversalFunction
+        BusinessFunction universalFunction = new BusinessFunction
             (
                 new RekognitionImageLabelDetector(),
                 new S3ObjectTagging(),
                 new DynamoDbMetaDataRepository()
             );
             
-        List<UniversalRecord> universalRecords = new List<UniversalRecord>();
+        List<StorageObject> universalRecords = new List<StorageObject>();
 
         foreach (var record in input.Records)
         {
-            universalRecords.Add(new UniversalRecord
+            universalRecords.Add(new StorageObject
             {
                 BucketName = record.S3.Bucket.Name,
                 ObjectKey = record.S3.Object.Key,

@@ -1,4 +1,4 @@
-﻿using Common.Support;
+﻿using Common.Support.ServiceInterfaces;
 using Oci.Common.Auth;
 using Oci.ObjectstorageService;
 using System;
@@ -22,7 +22,8 @@ namespace Implementations
             _client = new ObjectStorageClient(_provider);
         }
 
-        public string[] ImageList { 
+        public string[] ObjectList
+        { 
             get 
             {
                 List<string> ImageList = new List<string>();
@@ -37,7 +38,7 @@ namespace Implementations
             }
         }
 
-        public string GetImageData(string imageName)
+        public string GetObjectData(string imageName)
         {
             var response = _client.GetObject(new Oci.ObjectstorageService.Requests.GetObjectRequest
             {

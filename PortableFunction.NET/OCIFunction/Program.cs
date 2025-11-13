@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Implementations;
+using Common.Support.ServiceInterfaces;
+using Common.Support.Models;
 [assembly:InternalsVisibleTo("Function.Tests")]
 
 namespace OCIFunction {
@@ -33,14 +35,14 @@ namespace OCIFunction {
 			// Instanciate the business logic handler, and pass in the OCI implementations
 			// to handle platform code
 			ISecretsManagement secrets = new OCIVaultSecretsManager(authenticationDetailsProvider, config);
-            UniversalFunction universalFunction = new UniversalFunction
+            BusinessFunction universalFunction = new BusinessFunction
 			(
 				new OCIVisionImageLabelDetector(authenticationDetailsProvider, secrets),
 				new OCIObjectTagging(authenticationDetailsProvider, secrets),
 				new AutonomousJsonDbMetaDataRepository(authenticationDetailsProvider, secrets)
 			);
 
-			List<UniversalRecord> universalRecords = new List<UniversalRecord>();
+			List<StorageObject> universalRecords = new List<StorageObject>();
 
 			// Need to revise this to parse the OCI Object Storage event format
 			var inputJson = JsonDocument.Parse(input);
@@ -53,7 +55,7 @@ namespace OCIFunction {
 			string objectKey = data.GetProperty("resourceName").GetString();
 			Console.WriteLine($"Bucket Name: {bucketName}, Object Key: {objectKey}");
 
-			universalRecords.Add(new UniversalRecord
+			universalRecords.Add(new StorageObject
 			{
 				BucketName = bucketName,
 				ObjectKey = objectKey,

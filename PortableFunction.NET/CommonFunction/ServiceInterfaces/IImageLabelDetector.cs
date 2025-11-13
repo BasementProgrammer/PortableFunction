@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Common.Support.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Support
+namespace Common.Support.ServiceInterfaces
 {
     public interface IImageLabelDetector
     {
