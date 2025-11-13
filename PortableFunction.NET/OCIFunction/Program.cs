@@ -23,12 +23,6 @@ namespace OCIFunction {
             .AddEnvironmentVariables()
             .Build();
 
-            Console.WriteLine("Function started");
-			Console.WriteLine("ConnectionString - " + config["ConnectionString"]);
-			Console.WriteLine("StorageNamespace - " + config["StorageNamespace"]);
-			Console.WriteLine("StorageBucket - " + config["StorageBucket"]);
-			Console.WriteLine("CompartmetId - " + config["CompartmetId"]);
-
             // Authenticate the function using Instance Principals
             IBasicAuthenticationDetailsProvider authenticationDetailsProvider = ResourcePrincipalAuthenticationDetailsProvider.GetProvider();
 
@@ -42,7 +36,7 @@ namespace OCIFunction {
 				new AutonomousJsonDbMetaDataRepository(authenticationDetailsProvider, secrets)
 			);
 
-			List<StorageObject> universalRecords = new List<StorageObject>();
+			List<StorageObject> objectRecords = new List<StorageObject>();
 
 			// Need to revise this to parse the OCI Object Storage event format
 			var inputJson = JsonDocument.Parse(input);
@@ -55,14 +49,14 @@ namespace OCIFunction {
 			string objectKey = data.GetProperty("resourceName").GetString();
 			Console.WriteLine($"Bucket Name: {bucketName}, Object Key: {objectKey}");
 
-			universalRecords.Add(new StorageObject
+            objectRecords.Add(new StorageObject
 			{
 				BucketName = bucketName,
 				ObjectKey = objectKey,
 			});
 
-			Console.WriteLine($"Received {universalRecords.Count} records from S3 event");
-			universalFunction.ProcessImages(universalRecords);
+			Console.WriteLine($"Received {objectRecords.Count} records from S3 event");
+			universalFunction.ProcessImages(objectRecords);
 
 			return string.Format("Hello {0}!",
 				string.IsNullOrEmpty(input) ? "World" : input.Trim());

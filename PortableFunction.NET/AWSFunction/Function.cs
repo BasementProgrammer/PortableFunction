@@ -40,11 +40,11 @@ public class Function
                 new DynamoDbMetaDataRepository()
             );
             
-        List<StorageObject> universalRecords = new List<StorageObject>();
+        List<StorageObject> objectRecords = new List<StorageObject>();
 
         foreach (var record in input.Records)
         {
-            universalRecords.Add(new StorageObject
+            objectRecords.Add(new StorageObject
             {
                 BucketName = record.S3.Bucket.Name,
                 ObjectKey = record.S3.Object.Key,
@@ -54,8 +54,8 @@ public class Function
                 SourceIPAddress = record.RequestParameters?.SourceIPAddress
             });
         }
-        Console.WriteLine($"Received {universalRecords.Count} records from S3 event");
-        universalFunction.ProcessImages(universalRecords);
+        Console.WriteLine($"Received {objectRecords.Count} records from S3 event");
+        universalFunction.ProcessImages(objectRecords);
 
         return;
     }
